@@ -1,1 +1,2 @@
-docker run --rm -itd -v $(pwd):/autocomplete goimg:0.1
+#!/bin/bash
+docker run --rm -itd -v $(pwd):/autocomplete -p 8080:80 goimg:0.1
