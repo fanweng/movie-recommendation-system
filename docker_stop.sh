@@ -1,0 +1,1 @@
+docker stop autocomplete reverse_index load_balancer
