@@ -1,1 +1,1 @@
-docker stop autocomplete reverse_index load_balancer
+docker stop autocomplete reverse_index load_balancer movie_dataset

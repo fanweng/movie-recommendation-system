@@ -1,2 +1,5 @@
 **/data
 **/*.log
+**/*.zip
+**/*.csv
+**/*.json
