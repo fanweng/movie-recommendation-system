@@ -17,4 +17,3 @@ VOLUME /movie_dataset
 WORKDIR /movie_dataset
 
 CMD python3 load_movie_dataset.py
-CMD ["bash"]
