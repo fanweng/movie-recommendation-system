@@ -22,9 +22,9 @@ $ docker build -f Dockerfile -t nginximg:0.1 .
 $ ./docker_run.sh
 ```
 
-Autocomplete server: `http://localhost:8000`
-Reverse index server: `http://localhost:8001` and `http://localhost:8002`
-Nginx load balancer: `http://localhost:8003`
++ Autocomplete server: `http://localhost:8000`
++ Reverse index server: `http://localhost:8001` and `http://localhost:8002`
++ Nginx load balancer: `http://localhost:8003`
 
 ### Stop docker containers
 
@@ -50,14 +50,16 @@ $ ./dataset_load.sh
 
 ### Test a search request
 
-In the Chrome browser, we can request using the following URL with an input string:
+The access point for a user should always be the **load balancer**, not other two servers. [`nginx.conf`](load_balancer/nginx.conf) defines the endpoint for search is `/search` which will be routed to reverse index server.
+
+Thus in the Chrome browser, we can request using the following URL with an input string:
 ```
-http://localhost:8001/movie_index/_search?q=your_input
+http://localhost:8003/search?q=your_input
 ```
 
 In the local host terminal, use `curl` command to send a request:
 ```
-$ curl -X GET "http://localhost:8001/movie_index/_search?q=your_input"
+$ curl -X GET "http://localhost:8003/search?q=your_input"
 ```
 
 ### Dependencies

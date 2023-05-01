@@ -31,11 +31,11 @@ http {
     #include /etc/nginx/conf.d/*.conf;
 
     upstream autocomplete_server {
-        server 172.25.124.25:8000;
+        server {{HOST_IP}}:8000;
     }
 
     upstream reverse_index_server {
-        server 172.25.124.25:8001;
+        server {{HOST_IP}}:8001;
     }
 
     server {
