@@ -6,7 +6,7 @@ REVERSE_INDEX_PORT2=8002
 LOAD_BALANCER_PORT=8003
 HOST_IP=`hostname -I | cut -d ' ' -f1`
 
-docker run --rm -itd -v $(pwd)/autocomplete_server:/autocomplete -p $AUTOCOMPLETE_PORT:80 --name autocomplete goimg:0.2
+docker run --rm -itd -v $(pwd)/autocomplete_server:/autocomplete -p $AUTOCOMPLETE_PORT:80 --name autocomplete goimg:0.2 go run autocomplete_server.go $HOST_IP $LOAD_BALANCER_PORT
 
 docker run --rm -itd -v $(pwd)/reverse_index_server/data:/usr/share/elasticsearch/data -p $REVERSE_INDEX_PORT1:9200 -p $REVERSE_INDEX_PORT2:9300 -e "discovery.type=single-node" --name reverse_index esimg:0.1
 
