@@ -67,3 +67,17 @@ $ curl -X GET "http://localhost:8003/search?q=your_input"
 1. [IMDB Movie Dataset](https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows)
 
 2. Kaggle API: [https://github.com/Kaggle/kaggle-api](https://github.com/Kaggle/kaggle-api)
+
+## 3. User Send of Autocomplete Request
+
+Since the elastic search database is hidden to user, the search request should be processed by autocomplete server first then sent to database. Thus, "autocomplete" API should be used.
+
+In the Chrome browser,
+```
+http://localhost:8003/autocomplete?q=your_input
+```
+
+In the local host terminal,
+```
+$ curl -X GET "http://localhost:8003/autocomplete?q=your_input"
+```
